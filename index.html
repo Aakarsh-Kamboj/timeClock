@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            position: relative;
+            top: 100px;
+            height: 400px;
+            background-color: black;
+            color: wheat;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .container2{
+            position: absolute;
+            top: 20px;
+            left: 34%;
+        }
+        h2{
+            font-size: 3.5rem;
+        }
+        #displayTime{
+            font-size: 2.5rem;
+        }
+        @media only screen and (max-width: 500px){
+            .container{
+                position: relative;
+                top: 100px;
+                height: 400px;
+                background-color: black;
+                color: wheat;
+                text-align: center;
+                border-radius: 8px;
+            }
+            .container2{
+                position: absolute;
+                left: 10px;
+            }
+            h2{
+                font-size: 2.5rem;
+            }
+            #displayTime{
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container2">
+            <h2>Current Time is:</h2>
+            <p id="displayTime"></p>
+        </div>
+        <script>
+            let d;
+            let dt;
+            let hr;
+            let min;
+            let sec;
+            let time;
+            setInterval(() => {
+                d = new Date();
+                dt = d.toLocaleDateString();
+                hr = d.getHours();
+                min = d.getMinutes();
+                sec = d.getSeconds();
+                time = hr + ":" + min + ":" + sec + " on " + dt;
+                document.getElementById('displayTime').innerHTML = time;
+            }, 1000);
+            
+        </script>
+    </div>
+</body>
+</html>
